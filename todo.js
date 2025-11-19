@@ -1,6 +1,7 @@
 // Estado de la aplicación
 let todos = [];
 let currentFilter = 'all';
+let sortOrder = 'date'; // 'date', 'alphabetical', 'priority'
 
 // Elementos del DOM
 const todoInput = document.getElementById('todoInput');
