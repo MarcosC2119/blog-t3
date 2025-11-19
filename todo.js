@@ -11,6 +11,7 @@ const filterBtns = document.querySelectorAll('.filter-btn');
 const totalTasks = document.getElementById('totalTasks');
 const completedTasks = document.getElementById('completedTasks');
 const pendingTasks = document.getElementById('pendingTasks');
+const searchInput = document.getElementById('searchInput');
 
 // Cargar tareas desde localStorage
 function loadTodos() {
