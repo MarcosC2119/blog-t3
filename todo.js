@@ -225,6 +225,23 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// Formatear fecha
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diff = now - date;
+    const minutes = Math.floor(diff / 60000);
+    const hours = Math.floor(diff / 3600000);
+    const days = Math.floor(diff / 86400000);
+    
+    if (minutes < 1) return 'Hace un momento';
+    if (minutes < 60) return `Hace ${minutes} min`;
+    if (hours < 24) return `Hace ${hours} h`;
+    if (days < 7) return `Hace ${days} días`;
+    
+    return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short' });
+}
+
 // Limpiar todas las tareas completadas
 function clearCompleted() {
     const completedCount = todos.filter(t => t.completed).length;
