@@ -3,6 +3,9 @@ let todos = [];
 let currentFilter = 'all';
 let sortOrder = 'date'; // 'date', 'alphabetical', 'priority'
 
+// Versión de la aplicación
+const APP_VERSION = '1.0.0';
+
 // Elementos del DOM
 const todoInput = document.getElementById('todoInput');
 const addBtn = document.getElementById('addBtn');
