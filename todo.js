@@ -148,6 +148,14 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// Limpiar todas las tareas completadas
+function clearCompleted() {
+    todos = todos.filter(todo => !todo.completed);
+    saveTodos();
+    renderTodos();
+    updateStats();
+}
+
 // Filtrar tareas
 function setFilter(filter) {
     currentFilter = filter;
