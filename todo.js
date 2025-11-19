@@ -137,15 +137,24 @@ function changePriority(id, newPriority) {
 function sortTodos(todosArray) {
     const sorted = [...todosArray];
     if (sortOrder === 'alphabetical') {
-        return sorted.sort((a, b) => a.text.localeCompare(b.text));
+        return sorted.sort((a, b) => {
+            const textA = a.text.toLowerCase();
+            const textB = b.text.toLowerCase();
+            return textA.localeCompare(textB);
+        });
     } else if (sortOrder === 'priority') {
         const priorityOrder = { high: 3, medium: 2, low: 1 };
         return sorted.sort((a, b) => {
             const aPriority = priorityOrder[a.priority || 'medium'];
             const bPriority = priorityOrder[b.priority || 'medium'];
-            return bPriority - aPriority;
+            if (bPriority !== aPriority) {
+                return bPriority - aPriority;
+            }
+            // Si tienen la misma prioridad, ordenar por fecha
+            return new Date(b.createdAt) - new Date(a.createdAt);
         });
     }
+    // Ordenar por fecha (más recientes primero)
     return sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 }
 
