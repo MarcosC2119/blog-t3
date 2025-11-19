@@ -166,6 +166,29 @@ h1 {
     color: #666;
 }
 
+.priority-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.priority-high {
+    background: #ff4444;
+    color: white;
+}
+
+.priority-medium {
+    background: #ffaa00;
+    color: white;
+}
+
+.priority-low {
+    background: #44ff44;
+    color: #333;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
