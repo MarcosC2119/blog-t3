@@ -16,8 +16,11 @@
             <p class="subtitle">Organiza tu día de manera eficiente</p>
         </header>
         <div class="todo-input-container">
-            <input type="text" id="todoInput" placeholder="Escribe una nueva tarea...">
+            <input type="text" id="todoInput" placeholder="Escribe una nueva tarea..." maxlength="200">
             <button id="addBtn">Agregar</button>
+        </div>
+        <div class="char-counter">
+            <span id="charCount">0</span>/200 caracteres
         </div>
         <div class="filters">
             <button class="filter-btn active" data-filter="all">Todas</button>
