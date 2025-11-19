@@ -16,7 +16,17 @@ const pendingTasks = document.getElementById('pendingTasks');
 function loadTodos() {
     const stored = localStorage.getItem('todos');
     if (stored) {
-        todos = JSON.parse(stored);
+        try {
+            todos = JSON.parse(stored);
+            // Migrar tareas antiguas sin prioridad
+            todos = todos.map(todo => ({
+                ...todo,
+                priority: todo.priority || 'medium'
+            }));
+        } catch (e) {
+            console.error('Error al cargar tareas:', e);
+            todos = [];
+        }
     }
     renderTodos();
     updateStats();
