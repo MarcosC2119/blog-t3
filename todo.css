@@ -84,6 +84,11 @@ h1 {
     border-color: #667eea;
 }
 
+.filter-btn:hover:not(.active) {
+    background: #f0f0f0;
+    border-color: #667eea;
+}
+
 #todoList {
     list-style: none;
     margin-bottom: 20px;
