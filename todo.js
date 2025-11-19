@@ -191,6 +191,12 @@ if (sortSelect) {
     });
 }
 
+// Event listener para limpiar completadas
+const clearCompletedBtn = document.getElementById('clearCompletedBtn');
+if (clearCompletedBtn) {
+    clearCompletedBtn.addEventListener('click', clearCompleted);
+}
+
 // Inicializar aplicación
 loadTodos();
 
