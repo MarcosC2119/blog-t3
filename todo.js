@@ -151,10 +151,23 @@ function updateStats() {
     const total = todos.length;
     const completed = todos.filter(t => t.completed).length;
     const pending = total - completed;
+    const highPriority = todos.filter(t => t.priority === 'high' && !t.completed).length;
     
     totalTasks.textContent = `Total: ${total}`;
     completedTasks.textContent = `Completadas: ${completed}`;
     pendingTasks.textContent = `Pendientes: ${pending}`;
+    
+    // Agregar indicador de alta prioridad si existe
+    if (highPriority > 0 && !document.getElementById('highPriorityAlert')) {
+        const alert = document.createElement('div');
+        alert.id = 'highPriorityAlert';
+        alert.className = 'high-priority-alert';
+        alert.textContent = `⚠️ ${highPriority} tarea(s) de alta prioridad pendiente(s)`;
+        document.querySelector('.container').insertBefore(alert, todoList);
+    } else if (highPriority === 0) {
+        const alert = document.getElementById('highPriorityAlert');
+        if (alert) alert.remove();
+    }
 }
 
 // Escapar HTML para prevenir XSS
