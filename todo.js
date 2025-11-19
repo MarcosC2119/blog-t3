@@ -36,7 +36,8 @@ function addTodo() {
         id: Date.now(),
         text: text,
         completed: false,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        priority: 'medium'
     };
     
     todos.push(newTodo);
