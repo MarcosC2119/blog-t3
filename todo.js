@@ -84,10 +84,12 @@ function addTodo() {
 
 // Eliminar tarea
 function deleteTodo(id) {
-    todos = todos.filter(todo => todo.id !== id);
-    saveTodos();
-    renderTodos();
-    updateStats();
+    if (confirm('¿Estás seguro de eliminar esta tarea?')) {
+        todos = todos.filter(todo => todo.id !== id);
+        saveTodos();
+        renderTodos();
+        updateStats();
+    }
 }
 
 // Toggle completado
