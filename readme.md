@@ -1,108 +1,149 @@
-# 📝 Blog PHP
+# 📋 Plataforma To-Do
 
-Un blog simple pero potente desarrollado con PHP y MySQL, con capacidad para gestionar posts y subir imágenes.
+Una aplicación moderna y completa de gestión de tareas desarrollada con JavaScript puro, HTML5 y CSS3. Perfecta para organizar tu día a día de manera eficiente.
 
-## 🚀 Características
+## 🚀 Características Principales
 
-- ✨ Interfaz moderna y responsive usando Bootstrap 5
-- 📝 Creación de posts con título y contenido
-- 🖼️ Soporte para subida de imágenes
-- 🔒 Validación y seguridad implementada
-- ⚡ Diseño optimizado y limpio
-- 🌙 Tema oscuro incorporado
+- ✨ **Interfaz moderna y responsive** - Diseño limpio y adaptable a cualquier dispositivo
+- 📝 **Gestión completa de tareas** - Crear, editar y eliminar tareas fácilmente
+- ✅ **Sistema de completado** - Marca tareas como completadas con un solo clic
+- 🔍 **Búsqueda en tiempo real** - Encuentra tareas rápidamente
+- 🎯 **Sistema de prioridades** - Organiza tus tareas por prioridad (Alta, Media, Baja)
+- 📊 **Filtros inteligentes** - Filtra por todas, pendientes o completadas
+- 🔄 **Ordenamiento flexible** - Ordena por fecha, alfabético o prioridad
+- 💾 **Persistencia local** - Tus tareas se guardan automáticamente en el navegador
+- 📈 **Estadísticas en tiempo real** - Visualiza el progreso de tus tareas
+- 📤 **Exportar/Importar** - Guarda y restaura tus tareas en formato JSON
+- 🗑️ **Limpieza masiva** - Elimina todas las tareas completadas de una vez
+- ⏰ **Fechas relativas** - Visualiza cuándo creaste o completaste cada tarea
+- ⚠️ **Alertas de prioridad** - Notificaciones para tareas de alta prioridad
+- 🔢 **Contador de caracteres** - Controla la longitud de tus tareas
 
 ## 🛠️ Tecnologías Utilizadas
 
-- PHP 7+
-- MySQL
-- Bootstrap 5
-- HTML5
-- CSS3
-- JavaScript
+- **HTML5** - Estructura semántica y moderna
+- **CSS3** - Estilos avanzados con gradientes y animaciones
+- **JavaScript (Vanilla)** - Sin dependencias externas
+- **LocalStorage API** - Persistencia de datos en el navegador
 
-## 📋 Requisitos Previos
+## 📦 Instalación
 
-- XAMPP/WAMP/LAMP instalado
-- PHP 7.0 o superior
-- MySQL 5.7 o superior
-- Servidor web (Apache recomendado)
-
-## 🔧 Instalación
-
-1. Clona el repositorio en tu directorio web:
+1. Clona el repositorio:
 ```bash
-git clone https://github.com/MarcosC2119/BLOG-PHP.git
+git clone https://github.com/MarcosC2119/blog-t3.git
 ```
 
-2. Importa la base de datos:
-- Abre phpMyAdmin
-- Crea una base de datos llamada `DBblog`
-- Importa el archivo `sql.txt`
+2. Navega al directorio del proyecto:
+```bash
+cd blog-t3
+```
 
-3. Configura la conexión:
-- Abre `db.php`
-- Ajusta los parámetros de conexión si es necesario
+3. Abre `todo.html` en tu navegador web favorito
+
+¡Eso es todo! No requiere servidor ni configuración adicional.
+
+## 🎯 Guía de Uso
+
+### Agregar una Nueva Tarea
+
+1. Escribe tu tarea en el campo de texto
+2. (Opcional) Selecciona la prioridad (Baja, Media, Alta)
+3. Haz clic en "Agregar" o presiona `Enter`
+
+### Gestionar Tareas
+
+- **Completar**: Marca el checkbox junto a la tarea
+- **Editar**: Haz clic en el botón "Editar" y modifica el texto
+- **Cambiar prioridad**: Usa el selector de prioridad en cada tarea
+- **Eliminar**: Haz clic en "Eliminar" (se pedirá confirmación)
+
+### Filtrar Tareas
+
+Usa los botones de filtro para ver:
+- **Todas**: Muestra todas las tareas
+- **Pendientes**: Solo tareas no completadas
+- **Completadas**: Solo tareas completadas
+
+### Buscar Tareas
+
+Escribe en el campo de búsqueda para filtrar tareas por texto. Presiona `Escape` para limpiar la búsqueda.
+
+### Ordenar Tareas
+
+Selecciona el orden deseado:
+- **Fecha**: Más recientes primero
+- **Alfabético**: Orden alfabético A-Z
+- **Prioridad**: Alta prioridad primero
+
+### Exportar/Importar
+
+- **Exportar**: Descarga todas tus tareas en formato JSON
+- **Importar**: Restaura tareas desde un archivo JSON previamente exportado
+
+### Limpiar Completadas
+
+Haz clic en "Limpiar Completadas" para eliminar todas las tareas completadas de una vez.
 
 ## 📁 Estructura del Proyecto
 
 ```
-BLOG-PHP/
-├── create.php      # Formulario de creación de posts
-├── db.php          # Configuración de la base de datos
-├── index.html      # Página principal
-├── posts.php       # Listado de posts
-├── save_post.php   # Procesamiento de posts
-├── sql.txt         # Estructura de la base de datos
-└── uploads/        # Directorio de imágenes subidas
+blog-t3/
+├── todo.html          # Página principal de la aplicación
+├── todo.css           # Estilos y diseño responsive
+├── todo.js            # Lógica y funcionalidad
+├── README.md          # Este archivo
+├── LICENSE            # Licencia MIT
+└── .gitignore         # Archivos ignorados por Git
 ```
 
-## 🚀 Uso
+## 🎨 Características de Diseño
 
-1. Accede a la página principal: `http://localhost/BLOG-PHP`
-2. Navega a "Crear Post" para añadir una nueva entrada
-3. Rellena el formulario con título, contenido y opcionalmente una imagen
-4. Ve a "Ver Posts" para ver todas las publicaciones
+- **Gradiente moderno** - Fondo con gradiente púrpura/azul
+- **Tarjetas con sombras** - Interfaz tipo card con efectos visuales
+- **Animaciones suaves** - Transiciones y efectos hover
+- **Responsive design** - Adaptable a móviles, tablets y desktop
+- **Tema claro** - Interfaz limpia y profesional
 
 ## 🔒 Características de Seguridad
 
-- Validación de entradas de usuario
-- Protección contra XSS
-- Prepared Statements para prevenir SQL Injection
-- Validación de archivos subidos
-- Nombres únicos para archivos
-- Manejo seguro de sesiones
+- **Validación de entrada** - Previene tareas vacías o muy largas
+- **Escape de HTML** - Protección contra XSS
+- **Confirmaciones** - Pregunta antes de eliminar tareas importantes
+- **Manejo de errores** - Gestión robusta de errores en localStorage
 
-## 🛠️ Mejoras Futuras
+## 📊 Estadísticas
 
-- [ ] Sistema de usuarios
-- [ ] Categorías para posts
-- [ ] Sistema de comentarios
-- [ ] Buscador de posts
-- [ ] Editor rico de texto
-- [ ] Sistema de etiquetas
-- [ ] Paginación
-- [ ] Panel de administración
+La aplicación muestra en tiempo real:
+- Total de tareas
+- Tareas completadas
+- Tareas pendientes
+- Alertas de alta prioridad
+
+## 🚀 Mejoras Futuras
+
+- [ ] Modo oscuro/claro
+- [ ] Categorías/Etiquetas
+- [ ] Fechas de vencimiento
+- [ ] Recordatorios
+- [ ] Sincronización en la nube
+- [ ] Colaboración en tiempo real
+- [ ] Atajos de teclado
+- [ ] Temas personalizables
 
 ## 📝 Licencia
 
-Este proyecto está bajo la Licencia MIT - mira el archivo [LICENSE.md](LICENSE.md) para detalles
-
-## ✨ Contribuir
-
-Las contribuciones son bienvenidas:
-
-1. Fork el proyecto
-2. Crea tu Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la Branch (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
 ## 👥 Autor
 
-- **Tu Nombre** - *Trabajo Inicial* - [MarcosC2119](https://github.com/MarcosC2119)
+- **MarcosC2119** - [GitHub](https://github.com/MarcosC2119)
 
 ## 🎉 Agradecimientos
 
-- Bootstrap por el framework CSS
-- La comunidad PHP por la inspiración
-- GitHub Copilot por la asistencia en el desarrollo
+- La comunidad de desarrolladores web por la inspiración
+- GitHub por proporcionar la plataforma
+- Todos los contribuidores y usuarios
+
+---
+
+⭐ Si te gusta este proyecto, ¡dale una estrella en GitHub!

@@ -1,6 +1,0 @@
-IAS UTILIZADAS:
-
-1. GitHub Copilot Claude sonnet 3.5
-- Asistencia en la estructura del código PHP
-- Sugerencias de mejores prácticas de seguridad
-- Ayuda en la implementación de manejo de errores
