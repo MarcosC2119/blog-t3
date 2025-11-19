@@ -312,6 +312,17 @@ if (clearCompletedBtn) {
     clearCompletedBtn.addEventListener('click', clearCompleted);
 }
 
+// Event listeners para exportar e importar
+const exportBtn = document.getElementById('exportBtn');
+if (exportBtn) {
+    exportBtn.addEventListener('click', exportTodos);
+}
+
+const importBtn = document.getElementById('importBtn');
+if (importBtn) {
+    importBtn.addEventListener('click', importTodos);
+}
+
 // Función para exportar tareas
 function exportTodos() {
     const dataStr = JSON.stringify(todos, null, 2);
