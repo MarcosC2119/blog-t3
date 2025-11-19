@@ -34,7 +34,13 @@ function loadTodos() {
 
 // Guardar tareas en localStorage
 function saveTodos() {
-    localStorage.setItem('todos', JSON.stringify(todos));
+    try {
+        localStorage.setItem('todos', JSON.stringify(todos));
+        localStorage.setItem('lastSaved', new Date().toISOString());
+    } catch (e) {
+        console.error('Error al guardar tareas:', e);
+        alert('Error al guardar las tareas. El almacenamiento puede estar lleno.');
+    }
 }
 
 // Validar entrada de tarea
