@@ -92,9 +92,18 @@ function deleteTodo(id) {
 
 // Toggle completado
 function toggleTodo(id) {
-    todos = todos.map(todo => 
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    );
+    todos = todos.map(todo => {
+        if (todo.id === id) {
+            const updated = { ...todo, completed: !todo.completed };
+            if (updated.completed) {
+                updated.completedAt = new Date().toISOString();
+            } else {
+                delete updated.completedAt;
+            }
+            return updated;
+        }
+        return todo;
+    });
     saveTodos();
     renderTodos();
     updateStats();
