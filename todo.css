@@ -220,6 +220,23 @@ h1 {
     background: #ee5a52;
 }
 
+.high-priority-alert {
+    background: #fff3cd;
+    border: 2px solid #ffc107;
+    color: #856404;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    text-align: center;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
