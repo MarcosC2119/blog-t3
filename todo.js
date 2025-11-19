@@ -231,6 +231,17 @@ todoInput.addEventListener('keypress', (e) => {
     }
 });
 
+// Prevenir envío de formulario accidental
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('.container');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            addTodo();
+        });
+    }
+});
+
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
         setFilter(btn.dataset.filter);
