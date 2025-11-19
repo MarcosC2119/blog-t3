@@ -94,10 +94,14 @@ function renderTodos() {
         const li = document.createElement('li');
         li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
         
+        const priorityClass = `priority-${todo.priority || 'medium'}`;
+        const priorityText = todo.priority === 'high' ? 'Alta' : todo.priority === 'low' ? 'Baja' : 'Media';
+        
         li.innerHTML = `
             <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} 
                    onchange="toggleTodo(${todo.id})">
             <span class="todo-text">${escapeHtml(todo.text)}</span>
+            <span class="priority-badge ${priorityClass}">${priorityText}</span>
             <div class="todo-actions">
                 <button class="btn-edit" onclick="editTodo(${todo.id})">Editar</button>
                 <button class="btn-delete" onclick="deleteTodo(${todo.id})">Eliminar</button>
