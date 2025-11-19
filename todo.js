@@ -205,10 +205,18 @@ function escapeHtml(text) {
 
 // Limpiar todas las tareas completadas
 function clearCompleted() {
-    todos = todos.filter(todo => !todo.completed);
-    saveTodos();
-    renderTodos();
-    updateStats();
+    const completedCount = todos.filter(t => t.completed).length;
+    if (completedCount === 0) {
+        alert('No hay tareas completadas para limpiar');
+        return;
+    }
+    
+    if (confirm(`¿Estás seguro de eliminar ${completedCount} tarea(s) completada(s)?`)) {
+        todos = todos.filter(todo => !todo.completed);
+        saveTodos();
+        renderTodos();
+        updateStats();
+    }
 }
 
 // Filtrar tareas
