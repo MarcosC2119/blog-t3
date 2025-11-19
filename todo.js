@@ -132,6 +132,11 @@ function renderTodos() {
             <span class="todo-text">${escapeHtml(todo.text)}</span>
             <span class="priority-badge ${priorityClass}">${priorityText}</span>
             <div class="todo-actions">
+                <select class="priority-change" onchange="changePriority(${todo.id}, this.value)">
+                    <option value="low" ${todo.priority === 'low' ? 'selected' : ''}>Baja</option>
+                    <option value="medium" ${todo.priority === 'medium' ? 'selected' : ''}>Media</option>
+                    <option value="high" ${todo.priority === 'high' ? 'selected' : ''}>Alta</option>
+                </select>
                 <button class="btn-edit" onclick="editTodo(${todo.id})">Editar</button>
                 <button class="btn-delete" onclick="deleteTodo(${todo.id})">Eliminar</button>
             </div>
