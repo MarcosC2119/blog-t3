@@ -32,12 +32,15 @@ function addTodo() {
     const text = todoInput.value.trim();
     if (text === '') return;
     
+    const prioritySelect = document.getElementById('prioritySelect');
+    const priority = prioritySelect ? prioritySelect.value : 'medium';
+    
     const newTodo = {
         id: Date.now(),
         text: text,
         completed: false,
         createdAt: new Date().toISOString(),
-        priority: 'medium'
+        priority: priority
     };
     
     todos.push(newTodo);
