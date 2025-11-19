@@ -37,10 +37,26 @@ function saveTodos() {
     localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+// Validar entrada de tarea
+function validateTodo(text) {
+    if (!text || text.trim() === '') {
+        return { valid: false, error: 'La tarea no puede estar vacía' };
+    }
+    if (text.length > 200) {
+        return { valid: false, error: 'La tarea no puede tener más de 200 caracteres' };
+    }
+    return { valid: true };
+}
+
 // Agregar nueva tarea
 function addTodo() {
     const text = todoInput.value.trim();
-    if (text === '') return;
+    const validation = validateTodo(text);
+    
+    if (!validation.valid) {
+        alert(validation.error);
+        return;
+    }
     
     const prioritySelect = document.getElementById('prioritySelect');
     const priority = prioritySelect ? prioritySelect.value : 'medium';
