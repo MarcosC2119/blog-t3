@@ -174,6 +174,15 @@ filterBtns.forEach(btn => {
     });
 });
 
+// Event listener para ordenamiento
+const sortSelect = document.getElementById('sortSelect');
+if (sortSelect) {
+    sortSelect.addEventListener('change', (e) => {
+        sortOrder = e.target.value;
+        renderTodos();
+    });
+}
+
 // Inicializar aplicación
 loadTodos();
 
