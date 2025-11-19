@@ -189,6 +189,27 @@ h1 {
     color: #333;
 }
 
+.actions-bar {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.btn-clear {
+    padding: 12px 24px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-clear:hover {
+    background: #ee5a52;
+}
+
 @media (max-width: 600px) {
     .container {
         padding: 20px;
