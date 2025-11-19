@@ -293,6 +293,23 @@ function setFilter(filter) {
     renderTodos();
 }
 
+// Actualizar contador de caracteres
+function updateCharCounter() {
+    const charCount = document.getElementById('charCount');
+    const counter = document.querySelector('.char-counter');
+    if (charCount) {
+        const length = todoInput.value.length;
+        charCount.textContent = length;
+        if (counter) {
+            if (length > 180) {
+                counter.classList.add('warning');
+            } else {
+                counter.classList.remove('warning');
+            }
+        }
+    }
+}
+
 // Event listeners
 addBtn.addEventListener('click', addTodo);
 todoInput.addEventListener('keypress', (e) => {
@@ -300,6 +317,7 @@ todoInput.addEventListener('keypress', (e) => {
         addTodo();
     }
 });
+todoInput.addEventListener('input', updateCharCounter);
 
 // Prevenir envío de formulario accidental
 document.addEventListener('DOMContentLoaded', () => {
