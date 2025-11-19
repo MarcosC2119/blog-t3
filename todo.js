@@ -162,6 +162,18 @@ function renderTodos() {
     
     filteredTodos = sortTodos(filteredTodos);
     
+    if (filteredTodos.length === 0) {
+        const emptyMessage = document.createElement('li');
+        emptyMessage.className = 'empty-message';
+        emptyMessage.textContent = currentFilter === 'all' 
+            ? 'No hay tareas. ¡Agrega una nueva!' 
+            : currentFilter === 'completed'
+            ? 'No hay tareas completadas'
+            : 'No hay tareas pendientes';
+        todoList.appendChild(emptyMessage);
+        return;
+    }
+    
     filteredTodos.forEach(todo => {
         const li = document.createElement('li');
         li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
