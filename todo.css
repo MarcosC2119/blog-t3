@@ -228,12 +228,14 @@ h1 {
 
 .actions-bar {
     margin-top: 20px;
-    text-align: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
-.btn-clear {
+.btn-clear, .btn-export, .btn-import {
     padding: 12px 24px;
-    background: #ff6b6b;
     color: white;
     border: none;
     border-radius: 8px;
@@ -243,8 +245,28 @@ h1 {
     transition: background 0.3s;
 }
 
+.btn-clear {
+    background: #ff6b6b;
+}
+
 .btn-clear:hover {
     background: #ee5a52;
+}
+
+.btn-export {
+    background: #4caf50;
+}
+
+.btn-export:hover {
+    background: #45a049;
+}
+
+.btn-import {
+    background: #2196f3;
+}
+
+.btn-import:hover {
+    background: #0b7dda;
 }
 
 .high-priority-alert {
