@@ -312,6 +312,51 @@ if (clearCompletedBtn) {
     clearCompletedBtn.addEventListener('click', clearCompleted);
 }
 
+// Función para exportar tareas
+function exportTodos() {
+    const dataStr = JSON.stringify(todos, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `todos-${new Date().toISOString().split('T')[0]}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+}
+
+// Función para importar tareas
+function importTodos() {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            try {
+                const imported = JSON.parse(event.target.result);
+                if (Array.isArray(imported)) {
+                    if (confirm('¿Reemplazar todas las tareas actuales con las importadas?')) {
+                        todos = imported;
+                        saveTodos();
+                        renderTodos();
+                        updateStats();
+                        alert('Tareas importadas correctamente');
+                    }
+                } else {
+                    alert('El archivo no tiene un formato válido');
+                }
+            } catch (error) {
+                alert('Error al importar el archivo: ' + error.message);
+            }
+        };
+        reader.readAsText(file);
+    };
+    input.click();
+}
+
 // Inicializar aplicación
 loadTodos();
 
