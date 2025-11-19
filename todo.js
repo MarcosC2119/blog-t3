@@ -74,6 +74,17 @@ function editTodo(id) {
     const newText = prompt('Editar tarea:', todo.text);
     if (newText && newText.trim() !== '') {
         todo.text = newText.trim();
+        todo.updatedAt = new Date().toISOString();
+        saveTodos();
+        renderTodos();
+    }
+}
+
+// Cambiar prioridad de una tarea
+function changePriority(id, newPriority) {
+    const todo = todos.find(t => t.id === id);
+    if (todo) {
+        todo.priority = newPriority;
         saveTodos();
         renderTodos();
     }
