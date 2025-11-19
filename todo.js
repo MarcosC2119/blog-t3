@@ -167,10 +167,17 @@ function renderTodos() {
         const priorityClass = `priority-${todo.priority || 'medium'}`;
         const priorityText = todo.priority === 'high' ? 'Alta' : todo.priority === 'low' ? 'Baja' : 'Media';
         
+        const dateInfo = todo.completedAt 
+            ? `<span class="date-info">Completada: ${formatDate(todo.completedAt)}</span>`
+            : `<span class="date-info">Creada: ${formatDate(todo.createdAt)}</span>`;
+        
         li.innerHTML = `
             <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} 
                    onchange="toggleTodo(${todo.id})">
-            <span class="todo-text">${escapeHtml(todo.text)}</span>
+            <div class="todo-content">
+                <span class="todo-text">${escapeHtml(todo.text)}</span>
+                ${dateInfo}
+            </div>
             <span class="priority-badge ${priorityClass}">${priorityText}</span>
             <div class="todo-actions">
                 <select class="priority-change" onchange="changePriority(${todo.id}, this.value)">
