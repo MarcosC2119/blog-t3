@@ -18,6 +18,14 @@
             <button class="filter-btn" data-filter="pending">Pendientes</button>
             <button class="filter-btn" data-filter="completed">Completadas</button>
         </div>
+        <div class="priority-selector">
+            <label>Prioridad:</label>
+            <select id="prioritySelect">
+                <option value="low">Baja</option>
+                <option value="medium" selected>Media</option>
+                <option value="high">Alta</option>
+            </select>
+        </div>
         <ul id="todoList"></ul>
         <div class="stats">
             <span id="totalTasks">Total: 0</span>
