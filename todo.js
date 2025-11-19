@@ -407,6 +407,62 @@ function importTodos() {
     input.click();
 }
 
+// Función para buscar tareas
+function searchTodos(query) {
+    if (!query || query.trim() === '') {
+        renderTodos();
+        return;
+    }
+    
+    const searchTerm = query.toLowerCase();
+    const filtered = todos.filter(todo => 
+        todo.text.toLowerCase().includes(searchTerm)
+    );
+    
+    // Renderizar resultados de búsqueda
+    todoList.innerHTML = '';
+    if (filtered.length === 0) {
+        const emptyMessage = document.createElement('li');
+        emptyMessage.className = 'empty-message';
+        emptyMessage.textContent = 'No se encontraron tareas';
+        todoList.appendChild(emptyMessage);
+        return;
+    }
+    
+    const sorted = sortTodos(filtered);
+    sorted.forEach(todo => {
+        const li = document.createElement('li');
+        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
+        
+        const priorityClass = `priority-${todo.priority || 'medium'}`;
+        const priorityText = todo.priority === 'high' ? 'Alta' : todo.priority === 'low' ? 'Baja' : 'Media';
+        const dateInfo = todo.completedAt 
+            ? `<span class="date-info">Completada: ${formatDate(todo.completedAt)}</span>`
+            : `<span class="date-info">Creada: ${formatDate(todo.createdAt)}</span>`;
+        
+        li.innerHTML = `
+            <input type="checkbox" class="todo-checkbox" ${todo.completed ? 'checked' : ''} 
+                   onchange="toggleTodo(${todo.id})">
+            <div class="todo-content">
+                <span class="todo-text">${escapeHtml(todo.text)}</span>
+                ${dateInfo}
+            </div>
+            <span class="priority-badge ${priorityClass}">${priorityText}</span>
+            <div class="todo-actions">
+                <select class="priority-change" onchange="changePriority(${todo.id}, this.value)">
+                    <option value="low" ${todo.priority === 'low' ? 'selected' : ''}>Baja</option>
+                    <option value="medium" ${todo.priority === 'medium' ? 'selected' : ''}>Media</option>
+                    <option value="high" ${todo.priority === 'high' ? 'selected' : ''}>Alta</option>
+                </select>
+                <button class="btn-edit" onclick="editTodo(${todo.id})">Editar</button>
+                <button class="btn-delete" onclick="deleteTodo(${todo.id})">Eliminar</button>
+            </div>
+        `;
+        
+        todoList.appendChild(li);
+    });
+}
+
 // Inicializar aplicación
 loadTodos();
 
