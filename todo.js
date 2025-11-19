@@ -79,6 +79,22 @@ function editTodo(id) {
     }
 }
 
+// Función de ordenamiento
+function sortTodos(todosArray) {
+    const sorted = [...todosArray];
+    if (sortOrder === 'alphabetical') {
+        return sorted.sort((a, b) => a.text.localeCompare(b.text));
+    } else if (sortOrder === 'priority') {
+        const priorityOrder = { high: 3, medium: 2, low: 1 };
+        return sorted.sort((a, b) => {
+            const aPriority = priorityOrder[a.priority || 'medium'];
+            const bPriority = priorityOrder[b.priority || 'medium'];
+            return bPriority - aPriority;
+        });
+    }
+    return sorted.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+}
+
 // Renderizar tareas
 function renderTodos() {
     todoList.innerHTML = '';
@@ -89,6 +105,8 @@ function renderTodos() {
     } else if (currentFilter === 'pending') {
         filteredTodos = todos.filter(todo => !todo.completed);
     }
+    
+    filteredTodos = sortTodos(filteredTodos);
     
     filteredTodos.forEach(todo => {
         const li = document.createElement('li');
