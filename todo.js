@@ -320,6 +320,20 @@ todoInput.addEventListener('keypress', (e) => {
 });
 todoInput.addEventListener('input', updateCharCounter);
 
+// Event listener para búsqueda
+if (searchInput) {
+    searchInput.addEventListener('input', (e) => {
+        searchTodos(e.target.value);
+    });
+    
+    searchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            searchInput.value = '';
+            renderTodos();
+        }
+    });
+}
+
 // Prevenir envío de formulario accidental
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector('.container');
